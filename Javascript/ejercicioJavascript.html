@@ -3,23 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>Trabajo Práctico - JS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #1976D2;
+      border-left: 5px solid #FFB74D;
+      padding-left: 10px;
+    }
+
+    p {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin-bottom: 25px;
+      font-size: 1.1em;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    body::before {
+      content: "JavaScript + jQuery - TP";
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #1976D2;
+      margin-bottom: 30px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Ejercicio 1: Bienvenida con datos al azar</h2>
-  <p id="bienvenidaAzar"></p>
+  <div class="container">
+    <h2>Ejercicio 1: Bienvenida con datos al azar</h2>
+    <p id="bienvenidaAzar"></p>
 
-  <h2>Ejercicio 2: Bienvenida con datos ingresados por el usuario</h2>
-  <p id="bienvenidaUsuario"></p>
+    <h2>Ejercicio 2: Bienvenida con datos ingresados por el usuario</h2>
+    <p id="bienvenidaUsuario"></p>
 
-  <h2>Ejercicio 3: Cálculo de días vividos</h2>
-  <p id="diasVividos"></p>
+    <h2>Ejercicio 3: Cálculo de días vividos</h2>
+    <p id="diasVividos"></p>
+  </div>
 
   <script>
     // Ejercicio 1 - Datos al azar
-    const nombreAzar = "Lucía";
-    const apellidoAzar = "Martínez";
-    const edadAzar = 30;
-    const mensajeAzar = `¡Bienvenida ${nombreAzar} ${apellidoAzar}! Tienes ${edadAzar} años.`;
+    const nombre2 = "Kevin";
+    const apellido2 = "Mediña";
+    const edad = 30;
+    const mensajeAzar = `¡Bienvenid@ ${nombre2} ${apellido2}! Tienes ${edad} años.`;
     document.getElementById("bienvenidaAzar").textContent = mensajeAzar;
 
     // Ejercicio 2 - Datos ingresados por el usuario
