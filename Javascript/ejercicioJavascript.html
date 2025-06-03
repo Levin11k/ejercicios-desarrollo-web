@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Trabajo Práctico - JS</title>
+</head>
+<body>
+  <h2>Ejercicio 1: Bienvenida con datos al azar</h2>
+  <p id="bienvenidaAzar"></p>
+
+  <h2>Ejercicio 2: Bienvenida con datos ingresados por el usuario</h2>
+  <p id="bienvenidaUsuario"></p>
+
+  <h2>Ejercicio 3: Cálculo de días vividos</h2>
+  <p id="diasVividos"></p>
+
+  <script>
+    // Ejercicio 1 - Datos al azar
+    const nombreAzar = "Lucía";
+    const apellidoAzar = "Martínez";
+    const edadAzar = 30;
+    const mensajeAzar = `¡Bienvenida ${nombreAzar} ${apellidoAzar}! Tienes ${edadAzar} años.`;
+    document.getElementById("bienvenidaAzar").textContent = mensajeAzar;
+
+    // Ejercicio 2 - Datos ingresados por el usuario
+    const nombre = prompt("Ingrese su nombre:");
+    const apellido = prompt("Ingrese su apellido:");
+    const fechaNacimiento = prompt("Ingrese su fecha de nacimiento (formato YYYY-MM-DD):");
+
+    const mensajeUsuario = `¡Hola ${nombre} ${apellido}!`;
+    document.getElementById("bienvenidaUsuario").textContent = mensajeUsuario;
+
+    // Ejercicio 3 - Calcular días vividos
+    const fechaNac = new Date(fechaNacimiento);
+    const hoy = new Date();
+    const diferencia = hoy - fechaNac;
+    const diasVividos = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+    document.getElementById("diasVividos").textContent = `Has vivido aproximadamente ${diasVividos} días.`;
+  </script>
+</body>
+</html>
