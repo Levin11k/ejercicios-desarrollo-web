@@ -95,7 +95,7 @@
     const responseMsg = document.getElementById('responseMsg');
 
     function validarEmail(email) {
-      const regex = /^[\\w.-]+@[\\w.-]+\\.\\w{2,4}$/;
+      const regex = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
       return regex.test(email);
     }
 
