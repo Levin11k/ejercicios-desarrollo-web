@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Arte</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .layout-toggle {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .toggle-btn {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .toggle-btn:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .toggle-btn.active {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        /* Layout Básico - Grid Simple */
+        .gallery-basic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Layout Avanzado - Grid Complejo */
+        .gallery-advanced {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, 200px);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .artwork {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .artwork:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .artwork img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .artwork:hover img {
+            transform: scale(1.1);
+        }
+
+        .artwork-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .artwork:hover .artwork-overlay {
+            transform: translateY(0);
+        }
+
+        .artwork-title {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .artwork-artist {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Posicionamiento específico para layout avanzado */
+        .gallery-advanced .artwork:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+
+        .gallery-advanced .artwork:nth-child(2) {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .gallery-advanced .artwork:nth-child(3) {
+            grid-column: 4 / 6;
+            grid-row: 1 / 2;
+        }
+
+        .gallery-advanced .artwork:nth-child(4) {
+            grid-column: 6 / 7;
+            grid-row: 1 / 3;
+        }
+
+        .gallery-advanced .artwork:nth-child(5) {
+            grid-column: 3 / 5;
+            grid-row: 2 / 4;
+        }
+
+        .gallery-advanced .artwork:nth-child(6) {
+            grid-column: 5 / 7;
+            grid-row: 2 / 3;
+        }
+
+        .gallery-advanced .artwork:nth-child(7) {
+            grid-column: 1 / 2;
+            grid-row: 3 / 5;
+        }
+
+        .gallery-advanced .artwork:nth-child(8) {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+
+        .gallery-advanced .artwork:nth-child(9) {
+            grid-column: 5 / 7;
+            grid-row: 3 / 5;
+        }
+
+        .gallery-advanced .artwork:nth-child(10) {
+            grid-column: 2 / 5;
+            grid-row: 4 / 5;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery-advanced {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(8, 150px);
+            }
+
+            .gallery-advanced .artwork {
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-basic {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-advanced {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(10, 200px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Galería de Arte</h1>
+        
+        <div class="layout-toggle">
+            <button class="toggle-btn active" onclick="showLayout('basic')">Layout Básico</button>
+            <button class="toggle-btn" onclick="showLayout('advanced')">Layout Avanzado</button>
+        </div>
+
+        <!-- Layout Básico -->
+        <div id="gallery-basic" class="gallery-basic">
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500&h=500&fit=crop" alt="Arte Abstracto">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Composición Abstracta</div>
+                    <div class="artwork-artist">Estilo Moderno</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop" alt="Retrato">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Retrato Contemporáneo</div>
+                    <div class="artwork-artist">Técnica Mixta</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=500&h=500&fit=crop" alt="Paisaje">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Paisaje Urbano</div>
+                    <div class="artwork-artist">Óleo sobre Lienzo</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop" alt="Escultura">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Forma y Espacio</div>
+                    <div class="artwork-artist">Escultura Moderna</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500&h=500&fit=crop" alt="Arte Digital">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Arte Digital</div>
+                    <div class="artwork-artist">Creación Digital</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=500&h=500&fit=crop" alt="Collage">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Collage Experimental</div>
+                    <div class="artwork-artist">Técnica Mixta</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop" alt="Minimalismo">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Minimalismo</div>
+                    <div class="artwork-artist">Estilo Contemporáneo</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500&h=500&fit=crop" alt="Expresionismo">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Expresión Abstracta</div>
+                    <div class="artwork-artist">Acrílico sobre Lienzo</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layout Avanzado -->
+        <div id="gallery-advanced" class="gallery-advanced hidden">
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop" alt="Obra Principal">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Obra Maestra</div>
+                    <div class="artwork-artist">Colección Principal</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop" alt="Estudio de Color">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Estudio de Color</div>
+                    <div class="artwork-artist">Serie Cromática</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=400&fit=crop" alt="Naturaleza Muerta">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Naturaleza Muerta</div>
+                    <div class="artwork-artist">Técnica Clásica</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=600&fit=crop" alt="Retrato Vertical">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Retrato Vertical</div>
+                    <div class="artwork-artist">Estudio Fotográfico</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=500&h=500&fit=crop" alt="Composición Central">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Composición Central</div>
+                    <div class="artwork-artist">Obra Destacada</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&h=300&fit=crop" alt="Paisaje Horizontal">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Paisaje Horizontal</div>
+                    <div class="artwork-artist">Serie Panorámica</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=400&fit=crop" alt="Estudio Vertical">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Estudio Vertical</div>
+                    <div class="artwork-artist">Formato Columna</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=300&h=300&fit=crop" alt="Cuadrado Perfecto">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Equilibrio</div>
+                    <div class="artwork-artist">Formato Cuadrado</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=500&h=400&fit=crop" alt="Gran Formato">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Gran Formato</div>
+                    <div class="artwork-artist">Instalación Artística</div>
+                </div>
+            </div>
+            <div class="artwork">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=300&fit=crop" alt="Panorama Final">
+                <div class="artwork-overlay">
+                    <div class="artwork-title">Vista Panorámica</div>
+                    <div class="artwork-artist">Cierre de Exposición</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLayout(type) {
+            const basicGallery = document.getElementById('gallery-basic');
+            const advancedGallery = document.getElementById('gallery-advanced');
+            const buttons = document.querySelectorAll('.toggle-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if (type === 'basic') {
+                basicGallery.classList.remove('hidden');
+                advancedGallery.classList.add('hidden');
+                buttons[0].classList.add('active');
+            } else {
+                basicGallery.classList.add('hidden');
+                advancedGallery.classList.remove('hidden');
+                buttons[1].classList.add('active');
+            }
+        }
+
+        // Efecto de aparición gradual
+        window.addEventListener('load', function() {
+            const artworks = document.querySelectorAll('.artwork');
+            artworks.forEach((artwork, index) => {
+                setTimeout(() => {
+                    artwork.style.opacity = '0';
+                    artwork.style.transform = 'translateY(30px)';
+                    artwork.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    
+                    setTimeout(() => {
+                        artwork.style.opacity = '1';
+                        artwork.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
