@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño y Desarrollo Web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Diseño y Desarrollo Web</h1>
+            <p class="subtitle">Información completa de la materia</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('bibliografia')">Bibliografía</a></li>
+                <li><a href="#" onclick="showSection('examenes')">Fechas de Exámenes</a></li>
+                <li><a href="#" onclick="showSection('actividades')">Actividades UVAs</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <section id="bibliografia" class="hidden">
+                <h2>📚 Bibliografía</h2>
+                
+                <div class="book-list">
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/571944/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Cronograma de la materia</div>
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/571938/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Programa analítico</div>
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/571940/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Política de Uso de Foros</div>
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/571942/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Videos de las clases grabadas (encuentros sincrónicos)</div>
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/595929/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Clase 1 - Modelos de Sitio Web</div> 
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/597451/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Clase 2: Video de cómo hacer la actividad 1 y 2</div> 
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/597896/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Clase 2 sincrónica 25-3</div> 
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/599588/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Clase 3 sincrónica: 8/4</div> 
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/600407/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Clase 4 : 15/4</div> 
+                        </div>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/le/content/43347/viewContent/571954/View" target="_blank" class="book-link">
+                        <div class="book-item">
+                            <div class="book-title">Guía de lectura: Diseño de interfaz y experiencia de usuario 🧭</div> 
+                        </div>
+                    </a>
+                </div>
+
+            </section>
+
+            <section id="examenes" class="hidden">
+                <h2>📅 Fechas de Exámenes</h2>
+                
+                <h3>Primer Cuatrimestre 2025</h3>
+                <div class="exam-list">
+                    <div class="exam-item">
+                        <div class="book-title">Primer Parcial</div>
+                        <div class="exam-date">29/04/2025</div>
+                        <span class="exam-type">Presencial</span>
+                    </div>
+                    <div class="exam-item">
+                        <div class="book-title">Segundo Parcial</div>
+                        <div class="exam-date">24/06/2025</div>
+                        <span class="exam-type">Presencial</span>
+                    </div>
+                    <div class="exam-item">
+                        <div class="book-title">Recuperatorio / Final adelantado</div>
+                        <div class="exam-date">08/07/2025</div>
+                        <span class="exam-type">Presencial</span>
+                    </div>
+                </div>
+
+                <h3>Examen Final</h3>
+                <div class="exam-list">
+                    <div class="exam-item">
+                        <div class="book-title">Final Regular</div>
+                        <div class="exam-date">22/07/2025</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="actividades" class="hidden">
+                <h2>🎯 Actividades UVAs</h2>
+                
+                <div class="uva-section">
+                    <div class="activity-list">
+                        <a href="" class="activity-link" onclick="alert('Enlace a Actividad 1.1')">
+                            Ejercicio individual: HTML - Introducción 📝
+                        </a>
+                        <a href="#" class="activity-link" onclick="alert('Enlace a Actividad 1.2')">
+                            Ejercicio individual: HTML - Etiquetas 📝
+                        </a>
+                        <a href="#" class="activity-link" onclick="alert('Enlace a Actividad 1.3')">
+                            Ejercicio individual: Ejercicio integrador 📝(obligatorio)
+                        </a>
+                        <a href="#" class="activity-link" onclick="alert('Enlace a Actividad 1.4')">
+                            Ejercicio individual: Formato de texto 📝
+                        </a>
+                        <a href="#" class="activity-link" onclick="alert('Enlace a Actividad 1.5')">
+                            Ejercicio individual: Formato de cajas 📝
+                        </a>
+                         <a href="#" class="activity-link" onclick="alert('Enlace a Actividad 1.5')">
+                            Ejercicio individual: Unidades de medida 📝
+                        </a>
+                        <a href="#" class="activity-link" onclick="alert('Enlace a Actividad 1.5')">
+                            Ejercicio individual: Grid y Flexbox 📝
+                        </a>
+                        <a href="#" class="activity-link" onclick="alert('Enlace a Actividad 1.5')">
+                            Trabajo práctico Integrador UVA 2 (obligatorio)
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar/ocultar secciones
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Mostrar la sección seleccionada
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+        }
+
+        // Mostrar la primera sección por defecto al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('bibliografia');
+        });
+
+        // Efecto de scroll suave para navegación interna
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remover clase activa de todos los enlaces
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                
+                // Agregar clase activa al enlace clickeado
+                this.classList.add('active');
+            });
+        });
+
+        // Animación de entrada para las secciones
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideIn 0.6s ease forwards';
+                }
+            });
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
