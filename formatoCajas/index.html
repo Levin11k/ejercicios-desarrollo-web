@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone Gym - Tu Mejor Versión Te Espera</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">💪 FitZone</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#registro">Registro</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Tu Mejor Versión Te Espera</h1>
+            <p>Entrena con los mejores equipos y profesionales. Transforma tu cuerpo, transforma tu vida.</p>
+            <a href="#registro" class="cta-button">¡Comienza Hoy!</a>
+        </div>
+    </section>
+
+    <!-- Sección de Planes -->
+    <section id="planes" class="plans-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Planes</h2>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <h3 class="plan-name">Plan Básico</h3>
+                    <div class="plan-price">$2.500<span style="font-size: 1rem; color: #666;">/mes</span></div>
+                    <ul class="plan-features">
+                        <li>✅ Acceso a todas las máquinas</li>
+                        <li>✅ Horario libre de 6:00 a 22:00</li>
+                        <li>✅ Vestuarios y duchas</li>
+                        <li>✅ Asesoramiento inicial</li>
+                    </ul>
+                </div>
+                
+                <div class="plan-card featured">
+                    <h3 class="plan-name">Plan Premium</h3>
+                    <div class="plan-price">$4.200<span style="font-size: 1rem; color: #666;">/mes</span></div>
+                    <ul class="plan-features">
+                        <li>✅ Todo lo del Plan Básico</li>
+                        <li>✅ Clases grupales ilimitadas</li>
+                        <li>✅ 2 sesiones de entrenamiento personal</li>
+                        <li>✅ Evaluación física mensual</li>
+                        <li>✅ Acceso a zona de crossfit</li>
+                    </ul>
+                </div>
+
+                <div class="plan-card">
+                    <h3 class="plan-name">Plan Elite</h3>
+                    <div class="plan-price">$6.800<span style="font-size: 1rem; color: #666;">/mes</span></div>
+                    <ul class="plan-features">
+                        <li>✅ Todo lo del Plan Premium</li>
+                        <li>✅ Entrenamiento personal ilimitado</li>
+                        <li>✅ Plan nutricional personalizado</li>
+                        <li>✅ Acceso 24/7</li>
+                        <li>✅ Tratamientos de recuperación</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Registro -->
+    <section id="registro" class="registration-section">
+        <div class="container">
+            <h2 class="section-title">Regístrate Ahora</h2>
+            <div class="form-container">
+                <form id="registrationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido *</label>
+                            <input type="text" id="apellido" name="apellido" required placeholder="Tu apellido">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+54 11 xxxx-xxxx">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edad">Edad *</label>
+                            <input type="number" id="edad" name="edad" min="16" max="99" required placeholder="25">
+                        </div>
+                        <div class="form-group">
+                            <label for="genero">Género</label>
+                            <select id="genero" name="genero">
+                                <option value="">Seleccionar</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                                <option value="prefiero-no-decir">Prefiero no decir</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plan">Plan Seleccionado *</label>
+                        <select id="plan" name="plan" required>
+                            <option value="">Selecciona tu plan</option>
+                            <option value="basico">Plan Básico - $2.500/mes</option>
+                            <option value="premium">Plan Premium - $4.200/mes</option>
+                            <option value="elite">Plan Elite - $6.800/mes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Horarios Preferidos *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="manana" name="horarios" value="manana">
+                                <label for="manana">Mañana (6:00-12:00)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tarde" name="horarios" value="tarde">
+                                <label for="tarde">Tarde (12:00-18:00)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="noche" name="horarios" value="noche">
+                                <label for="noche">Noche (18:00-22:00)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Días de Entrenamiento</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lunes" name="dias" value="lunes">
+                                <label for="lunes">Lunes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="martes" name="dias" value="martes">
+                                <label for="martes">Martes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="miercoles" name="dias" value="miercoles">
+                                <label for="miercoles">Miércoles</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="jueves" name="dias" value="jueves">
+                                <label for="jueves">Jueves</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="viernes" name="dias" value="viernes">
+                                <label for="viernes">Viernes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sabado" name="dias" value="sabado">
+                                <label for="sabado">Sábado</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="domingo" name="dias" value="domingo">
+                                <label for="domingo">Domingo</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experiencia">Nivel de Experiencia</label>
+                        <select id="experiencia" name="experiencia">
+                            <option value="">Seleccionar</option>
+                            <option value="principiante">Principiante</option>
+                            <option value="intermedio">Intermedio</option>
+                            <option value="avanzado">Avanzado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="objetivos">Objetivos de Entrenamiento</label>
+                        <textarea id="objetivos" name="objetivos" rows="4" placeholder="Cuéntanos cuáles son tus objetivos: perder peso, ganar músculo, mejorar resistencia, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condiciones">Condiciones Médicas (Opcional)</label>
+                        <textarea id="condiciones" name="condiciones" rows="3" placeholder="Si tienes alguna condición médica o lesión que debamos conocer, compártela aquí"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">🔥 Comenzar Mi Transformación</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Contacto</a>
+                <a href="#">Ubicación</a>
+            </div>
+            <p>&copy; 2025 FitZone Gym. Todos los derechos reservados.</p>
+            <p>📍 Av. Corrientes 1234, Buenos Aires | 📞 +54 11 4567-8900 | 📧 info@fitzonegym.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll suave para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Validación y envío del formulario
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar que al menos un horario esté seleccionado
+            const horariosChecked = document.querySelectorAll('input[name="horarios"]:checked');
+            if (horariosChecked.length === 0) {
+                alert('Por favor, selecciona al menos un horario preferido.');
+                return;
+            }
+
+            // Recopilar datos del formulario
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Campos normales
+            for (let [key, value] of formData.entries()) {
+                if (key !== 'horarios' && key !== 'dias') {
+                    data[key] = value;
+                }
+            }
+            
+            // Checkboxes
+            data.horarios = Array.from(document.querySelectorAll('input[name="horarios"]:checked')).map(cb => cb.value);
+            data.dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(cb => cb.value);
+
+            // Simular envío exitoso
+            alert('¡Registro exitoso! Te contactaremos pronto para coordinar tu primera visita. ¡Bienvenido a FitZone!');
+            
+            // Opcional: limpiar formulario
+            this.reset();
+        });
+
+        // Efecto de cambio de color en el header al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 26, 0.95)';
+            } else {
+                header.style.background = 'var(--secondary-color)';
+            }
+        });
+    </script>
+</body>
+</html>
