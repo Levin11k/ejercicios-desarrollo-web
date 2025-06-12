@@ -1,0 +1,64 @@
+/* 1. Fondo rojo para miembros del Imperio */
+.imperio {
+  background-color: red;
+}
+
+/* 2. Fondo azul para miembros de los Rebeldes */
+.rebeldes {
+  background-color: blue;
+}
+
+/* 3. Estilo para Darth Vader: aumentar tamaño de letra */
+#darth-vader {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* 4. Estilo para Luke Skywalker: cursiva */
+#luke {
+  font-style: italic;
+}
+
+/* 5. Soldados con borde a rayas */
+.soldados {
+  border: 2px dashed black;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* 6. Soldados con mayor espacio entre letras */
+.soldados {
+  letter-spacing: 2px;
+}
+
+/* 7. Unidades de apoyo centradas */
+.unidades-apoyo {
+  text-align: center;
+}
+
+/* 8. Nombres de naves en mayúscula */
+.naves {
+  text-transform: uppercase;
+}
+
+/* 9. Ajustes visuales extra para que se vea mejor */
+img {
+  width: 200px;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
